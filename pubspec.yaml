@@ -1,0 +1,47 @@
+name: shamil_technologies
+description: "Shamil Technologies - Your One‑Stop Software House"
+publish_to: 'none' 
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # State Management
+  flutter_riverpod: ^2.5.1
+  
+  # Routing
+  go_router: ^16.0.0
+
+  # UI & Animations
+  animate_do: ^4.2.0
+  flutter_svg: ^2.0.10+1
+
+  # For SEO
+  flutter_web_plugins:
+    sdk: flutter
+  
+  # Other utilities
+  url_launcher: ^6.2.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  
+  flutter_lints: ^5.0.0
+  build_runner: ^2.4.9
+  flutter_gen_runner: ^5.4.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/icons/
+
+flutter_gen:
+  output: lib/app/constants/app_assets.dart
