@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:shamil_technologies/features/home/presentation/widgets/about_us_section.dart';
+import 'package:shamil_technologies/features/home/presentation/widgets/blog_preview_section.dart';
+import 'package:shamil_technologies/features/home/presentation/widgets/contact_cta_section.dart';
 import 'package:shamil_technologies/features/home/presentation/widgets/featured_services_section.dart';
 import 'package:shamil_technologies/features/home/presentation/widgets/hero_section.dart';
+import 'package:shamil_technologies/features/home/presentation/widgets/testimonials_section.dart';
 import 'package:shamil_technologies/features/shared/widgets/main_layout.dart';
 
 class HomePage extends StatelessWidget {
@@ -12,8 +16,10 @@ class HomePage extends StatelessWidget {
       child: Column(
         children: [
           HeroSection(),
-          // FeaturedServicesSection(), // Assuming this will be built next
-          // Add other sections like Testimonials, Blog Preview here
+          AboutUsSection(),
+          TestimonialsSection(),
+          BlogPreviewSection(),
+          ContactCTASection(),
         ],
       ),
     );

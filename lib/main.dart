@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shamil_technologies/app/config/router/app_router.dart';
 import 'package:shamil_technologies/app/config/theme/app_theme.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+
+// Import this package to use the usePathUrlStrategy function
 import 'package:flutter_web_plugins/url_strategy.dart';
 
 void main() {
-  usePathUrlStrategy(); // Removes the '#' from the URL
+  usePathUrlStrategy(); // This will now be recognized
   runApp(const ProviderScope(child: MyApp()));
 }
 
@@ -22,7 +25,9 @@ class MyApp extends ConsumerWidget {
       theme: AppTheme.darkTheme,
       routerConfig: router,
       localizationsDelegates: const [
-        // Add Arabic localization delegates here
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: const [
         Locale('ar', ''), // Arabic

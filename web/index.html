@@ -14,11 +14,15 @@
   <meta property="og:url" content="https://shamil.tech/">
   <meta property="og:title" content="Shamil Technologies | شامل تكنولوجيز - حلول برمجية متكاملة">
   <meta property="og:description" content="شركة شامل تكنولوجيز تقدم حلولاً برمجية متكاملة، من تطوير المواقع والتطبيقات إلى أنظمة المؤسسات والدعم الفني.">
-  <meta property="og:image" content="https://shamil.tech/assets/images/social_preview.png"> <meta property="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://shamil.tech/assets/images/social_preview.png">
+
+  <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://shamil.tech/">
   <meta property="twitter:title" content="Shamil Technologies | شامل تكنولوجيز - حلول برمجية متكاملة">
   <meta property="twitter:description" content="شركة شامل تكنولوجيز تقدم حلولاً برمجية متكاملة، من تطوير المواقع والتطبيقات إلى أنظمة المؤسسات والدعم الفني.">
-  <meta property="twitter:image" content="https://shamil.tech/assets/images/social_preview.png"> <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta property="twitter:image" content="https://shamil.tech/assets/images/social_preview.png">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="shamil_technologies">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
@@ -26,60 +30,29 @@
   <link rel="icon" type="image/png" href="favicon.png"/>
 
   <link rel="manifest" href="manifest.json">
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY_HERE"></script>
+  
+  <script>
+    // The value below is injected by flutter build, do not touch.
+    var serviceWorkerVersion = "{{flutter_service_worker_version}}";
+  </script>
+  <script src="flutter.js" defer></script>
 </head>
 <body>
   <script>
-    var serviceWorkerVersion = null;
-    var scriptLoaded = false;
-    function loadMainDartJs() {
-      if (scriptLoaded) {
-        return;
-      }
-      scriptLoaded = true;
-      var script = document.createElement('script');
-      script.src = 'main.dart.js';
-      script.type = 'application/javascript';
-      document.body.appendChild(script);
-    }
-
-    if ('serviceWorker' in navigator) {
-      // Service workers are supported. Use them.
-      window.addEventListener('load', function () {
-        // Wait for registration to finish before dropping the <script> tag.
-        // Otherwise, the browser will load the script multiple times,
-        // potentially different versions.
-        var serviceWorkerUrl = 'flutter_service_worker.js?v=' + serviceWorkerVersion;
-        navigator.serviceWorker.register(serviceWorkerUrl)
-          .then((reg) => {
-            function waitForActivation(serviceWorker) {
-              serviceWorker.addEventListener('statechange', () => {
-                if (serviceWorker.state == 'activated') {
-                  console.log('Installed new service worker.');
-                  loadMainDartJs();
-                }
-              });
-            }
-            if (!reg.active && (reg.installing || reg.waiting)) {
-              // No active web worker and we have installed or are installing
-              // one for the first time. Simply wait for it to activate.
-              waitForActivation(reg.installing ?? reg.waiting);
-            } else if (!reg.active.scriptURL.endsWith(serviceWorkerVersion)) {
-              // When the app updates the serviceWorkerVersion changes, so we
-              // need to ask the service worker to update.
-              console.log('New service worker available.');
-              reg.update();
-              waitForActivation(reg.installing);
-            } else {
-              // Otherwise, service worker is active and up to date.
-              console.log('Service worker active and up to date.');
-              loadMainDartJs();
-            }
-          });
+    window.addEventListener('load', function(ev) {
+      // Download main.dart.js
+      _flutter.loader.loadEntrypoint({
+        serviceWorker: {
+          serviceWorkerVersion: serviceWorkerVersion,
+        }
+      }).then(function(engineInitializer) {
+        return engineInitializer.initializeEngine();
+      }).then(function(appRunner) {
+        return appRunner.runApp();
       });
-    } else {
-      // Service workers are not supported. Just drop the <script> tag.
-      loadMainDartJs();
-    }
+    });
   </script>
 </body>
 </html>
