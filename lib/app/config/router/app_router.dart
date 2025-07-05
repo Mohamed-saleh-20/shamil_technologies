@@ -19,7 +19,6 @@ final routerProvider = Provider<GoRouter>((ref) {
         path: '/services',
         builder: (context, state) => const ServicesPage(),
       ),
-      // Add the new routes here
       GoRoute(
         path: '/portfolio',
         builder: (context, state) => const PortfolioPage(),
@@ -30,7 +29,7 @@ final routerProvider = Provider<GoRouter>((ref) {
       ),
       GoRoute(
         path: '/contact',
-        builder: (context, state) => const ContactPage(),
+        builder: (context, state) => const CreativeContactPage(),
       ),
     ],
   );

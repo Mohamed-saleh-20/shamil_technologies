@@ -234,11 +234,7 @@ class _HeroSectionState extends State<HeroSection>
                       const SizedBox(height: 60),
 
                       // Stats
-                      FadeInUp(
-                        duration: const Duration(milliseconds: 2000),
-                        delay: const Duration(milliseconds: 800),
-                        child: _buildStatsRow(isDesktop, isTablet),
-                      ),
+                 
                     ],
                   ),
                 ),
@@ -382,52 +378,6 @@ class _HeroSectionState extends State<HeroSection>
     );
   }
 
-  Widget _buildStatsRow(bool isDesktop, bool isTablet) {
-    return Container(
-      padding: const EdgeInsets.all(24),
-      decoration: BoxDecoration(
-        color: AppColors.glassBackground,
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: AppColors.glassBorder),
-      ),
-      child: Wrap(
-        spacing: isDesktop ? 60 : 30,
-        runSpacing: 20,
-        alignment: WrapAlignment.center,
-        children: [
-          _buildStat('100+', 'مشروع مكتمل'),
-          _buildStat('50+', 'عميل سعيد'),
-          _buildStat('5+', 'سنوات خبرة'),
-          _buildStat('24/7', 'دعم فني'),
-        ],
-      ),
-    );
-  }
+    }
 
-  Widget _buildStat(String number, String label) {
-    return Column(
-      children: [
-        ShaderMask(
-          shaderCallback: (bounds) =>
-              AppColors.accentGradient.createShader(bounds),
-          child: Text(
-            number,
-            style: const TextStyle(
-              fontSize: 32,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-            ),
-          ),
-        ),
-        const SizedBox(height: 4),
-        Text(
-          label,
-          style: const TextStyle(
-            fontSize: 14,
-            color: AppColors.mediumGray,
-          ),
-        ),
-      ],
-    );
-  }
-}
+  

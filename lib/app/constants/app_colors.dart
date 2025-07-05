@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   // Primary Brand Colors
-  static const Color primaryGradientStart = Color(0xFF6366F1); // Indigo
-  static const Color primaryGradientEnd = Color(0xFF8B5CF6); // Purple
+  static const Color primaryGradientStart = Color(0xFF20C997); // Indigo
+  static const Color primaryGradientEnd = Color(0xFF17A2B8); // Purple
   static const Color accentGradientStart = Color(0xFF06B6D4); // Cyan
   static const Color accentGradientEnd = Color(0xFF0EA5E9); // Blue
   
