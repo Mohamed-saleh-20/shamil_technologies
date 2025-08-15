@@ -1,4 +1,4 @@
-# 🌟 Shamil — Website & App Platform
+# 🚀 Shamil Web 
 
 > A complete digital solution for managing services, bookings, and subscriptions with ease and efficiency.
 
